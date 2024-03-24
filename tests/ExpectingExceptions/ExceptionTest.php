@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+namespace Test\ExpectingExceptions;
+
 use PHPUnit\Framework\TestCase;
 
 final class ExceptionTest extends TestCase
@@ -11,6 +13,11 @@ final class ExceptionTest extends TestCase
          * expectExceptionCode() expectExceptionMessage() expectExceptionMessageMatches()
          */
         $this->expectException(\InvalidArgumentException::class);
-        new \App\Classes\InvalidArgumentException();
+        new class{
+            public function __construct()
+            {
+                throw new \InvalidArgumentException();
+            }
+        };
     }
 }
