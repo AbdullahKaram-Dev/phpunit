@@ -2,8 +2,10 @@
 
 namespace Test\SkippingTests;
 
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use PHPUnit\Framework\TestCase;
 
+// #[RequiresPhpExtension('pgsql')]
 class DatabaseTest extends TestCase
 {
     protected function setUp(): void
